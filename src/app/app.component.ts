@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angular_iage_km_2';
+
+  alert(){
+    alert("je suis ....");
+  }
 }
