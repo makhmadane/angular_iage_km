@@ -32,4 +32,15 @@ export class ProductComponent implements OnInit {
       }
     )
   }
+
+  deleteProduit(id : number){
+    this.httpClient.delete("http://localhost:8000/api/products/"+id).subscribe(
+      ()=>{
+          this.getAllProducts();
+      },
+      ()=>{
+          console.log("error")
+      }
+    )
+  }
 }
