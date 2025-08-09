@@ -8,6 +8,7 @@ const routes: Routes = [
   {path:'',component : ProductComponent},
   {path : "product", component : ProductComponent},
   {path : "addProduct", component : addProductComponent},
+  {path : "updateProduct/:id", component : addProductComponent},
   {path : "user", component : UserComponent},
   {path:"**", redirectTo: ''}
 ];

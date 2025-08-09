@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { ProductService } from '../services/product.service';
 
 @Component({
   selector: 'app-product',
@@ -11,7 +12,7 @@ export class ProductComponent implements OnInit {
   products: any = [];
 
   //IOC INJECTION DE DEPENCDANCE
-  constructor(private httpClient: HttpClient) {
+  constructor(private productService : ProductService) {
 
   }
 
@@ -22,7 +23,7 @@ export class ProductComponent implements OnInit {
   }
 
   getAllProducts() {
-    this.httpClient.get("http://localhost:8000/api/products").subscribe(
+    this.productService.getAllProducts().subscribe(
       (data: any) => {
         this.products = data.products;
         console.log(this.products)
@@ -34,7 +35,7 @@ export class ProductComponent implements OnInit {
   }
 
   deleteProduit(id : number){
-    this.httpClient.delete("http://localhost:8000/api/products/"+id).subscribe(
+   this.productService.deleteProduit(id).subscribe(
       ()=>{
           this.getAllProducts();
       },

@@ -15,7 +15,7 @@
         <td>{{p.prixe}}</td>
         <td>
             <button class="btn btn-danger" (click)="deleteProduit(p.id)" >Delete</button>
-            <button class="btn btn-primary">Update</button>
+            <button class="btn btn-primary" routerLink="/updateProduct/{{p.id}}">Update</button>
         </td>
     </tr>
 </table>
