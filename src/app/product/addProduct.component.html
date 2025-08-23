@@ -4,8 +4,16 @@
 <form  [formGroup]="formProduct" (ngSubmit)="onSubmit()">
     <label for="">Name</label>
     <input type="text" class="form-control" formControlName="name">
+    <div *ngIf="submitted && f2['name'].errors">
+        <span class="text-danger" *ngIf="f2['name'].errors['required']" >Name est Obligatoire</span>
+        <span class="text-danger"  *ngIf="f2['name'].errors['minlength']" >Name doit depasse 3 cars</span>
+    </div>
     <label for="">Prix</label>
     <input type="text" class="form-control" formControlName="prixe">
+       <div *ngIf="submitted && f2['prixe'].errors">
+        <span class="text-danger" *ngIf="f2['prixe'].errors['required']" >Prix est Obligatoire</span>
+      
+    </div>
     <label for="">Description</label>
     <input type="text" class="form-control" formControlName="description">
     <button type="submit"> {{id ? 'Update' : 'Save'}}</button>

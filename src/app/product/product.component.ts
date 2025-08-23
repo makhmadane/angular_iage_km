@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../services/product.service';
+import { Product } from '../models/product';
+import { ProductResponse } from '../models/productResponse';
 
 @Component({
   selector: 'app-product',
@@ -24,9 +26,8 @@ export class ProductComponent implements OnInit {
 
   getAllProducts() {
     this.productService.getAllProducts().subscribe(
-      (data: any) => {
+      (data: ProductResponse) => {
         this.products = data.products;
-        console.log(this.products)
       },
       () => {
         console.log("error")
@@ -39,8 +40,8 @@ export class ProductComponent implements OnInit {
       ()=>{
           this.getAllProducts();
       },
-      ()=>{
-          console.log("error")
+      (error)=>{
+          console.log(error)
       }
     )
   }
